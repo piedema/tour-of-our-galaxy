@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 
-// dbUser vcUnYugvHnZKqhZI cluster0.3gneyki.mongodb.net tour-of-our-galaxy
-const dbUrl = 'mongodb+srv://dbUser:vcUnYugvHnZKqhZI@cluster0.3gneyki.mongodb.net/tour-of-our-galaxy'
+const dbUrl = process.env.DB_URL
 
 const connect = async () => {
 
