@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 
-const dbUrl = process.env.DB_URL
-
 const connect = async () => {
+
+    const dbUrl = process.env.DB_URL
 
     const db = await mongoose.connect(dbUrl)
 
