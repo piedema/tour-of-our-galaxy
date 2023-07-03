@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import updater from './updater'
 
 import system from './controllers/system.controller'
+import star from './controllers/star.controller'
 import planet from './controllers/planet.controller'
 import moon from './controllers/moon.controller'
 
@@ -21,9 +22,10 @@ import mongodb from './databases/mongodb'
     nodeSchedule.scheduleJob('0 0 0 * * *', updater)
     updater()
 
-    app.use('/system', system)
-    app.use('/planet', planet)
-    app.use('/moon', moon)
+    app.use('/systems', system)
+    app.use('/stars', star)
+    app.use('/planets', planet)
+    app.use('/moons', moon)
 
     app.listen(port, () => {
 
