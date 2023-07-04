@@ -11,20 +11,6 @@ import MoonModel from './models/moon.model'
 
 export default async function updater(){
 
-    // if(PlanetModel.collection){
-
-    //     // PlanetModel.collection?.dropIndexes()
-    //     PlanetModel.collection?.drop()
-
-    // }
-
-    // if(MoonModel.collection){
-
-    //     // MoonModel.collection?.dropIndexes()
-    //     MoonModel.collection?.drop()
-
-    // }
-
     SystemModel.collection?.drop()
     StarModel.collection?.drop()
     PlanetModel.collection?.drop()

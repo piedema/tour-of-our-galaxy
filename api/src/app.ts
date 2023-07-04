@@ -1,27 +1,36 @@
 import express from 'express'
 import nodeSchedule from 'node-schedule'
+import dotenv from 'dotenv'
 
 import updater from './updater'
 
 import system from './controllers/system.controller'
+import star from './controllers/star.controller'
 import planet from './controllers/planet.controller'
 import moon from './controllers/moon.controller'
 
 import mongodb from './databases/mongodb'
+
 ;(async () => {
-const app = express()
-const port = 3000
-const db = await mongodb.connect()
 
-nodeSchedule.scheduleJob('0 0 0 * * *', updater)
-updater()
+    dotenv.config()
+    
+    const app = express()
+    const port = 3000
+    const db = await mongodb.connect()
 
-app.use('/system', system)
-app.use('/planet', planet)
-app.use('/moon', moon)
+    nodeSchedule.scheduleJob('0 0 0 * * *', updater)
+    updater()
 
-app.listen(port, () => {
+    app.use('/systems', system)
+    app.use('/stars', star)
+    app.use('/planets', planet)
+    app.use('/moons', moon)
 
-    return console.log(`Express is listening on port ${port}`)
+    app.listen(port, () => {
 
-})})()
+        return console.log(`Express is listening on port ${port}`)
+
+    })
+
+})()
