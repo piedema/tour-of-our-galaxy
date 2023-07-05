@@ -16,7 +16,7 @@ import mongodb from './databases/mongodb'
     dotenv.config()
     
     const app = express()
-    const port = 3000
+    const port = process.env.API_PORT
     const db = await mongodb.connect()
 
     nodeSchedule.scheduleJob('0 0 0 * * *', updater)
